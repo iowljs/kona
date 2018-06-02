@@ -1,3 +1,7 @@
+/**
+ * @package kona
+ * @license MIT
+ */
 module.exports = class ExampleController {
     constructor(server) {
         this.server = server;

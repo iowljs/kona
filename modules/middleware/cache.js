@@ -1,3 +1,8 @@
+/**
+ * @package kona
+ * @license MIT
+ */
+
 module.exports = app => {
     const compression = require('compression');
     app.use(compression({ filter: shouldCompress }));

@@ -1,3 +1,8 @@
+/**
+ * @package kona
+ * @license MIT
+ */
+
 module.exports = server => {
     let app = server.app;
     app.use((req, res, next) => {

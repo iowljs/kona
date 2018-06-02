@@ -8,12 +8,14 @@
     "start": "node bin/server.js",
     "start:dev": "NODE_ENV=development node bin/server.js",
     "start:staging": "NODE_ENV=staging node bin/server.js",
-    "start:production": "NODE_ENV=production node bin/server.js",
+    "start:production": "NODE_ENV=production node bin/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemailer": "^4.6.5",
+    "request": "^2.87.0"
   }
 }
