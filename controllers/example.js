@@ -8,6 +8,12 @@ module.exports = class ExampleController {
             res.send('hello, world!');
         });
     }
+    fromModel(req, res) {
+        /**
+         * This is NOT a practical example
+         */
+        this.server.getModels().example.writeToRequest(req, res);
+    }
     test(req, res) {
         res.send('Local method called');
     }

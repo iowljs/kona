@@ -21,8 +21,14 @@ module.exports = class GatewayServer {
         this._prepControllers();
         this._prepAutomagicLoading();
     }
+    getModels() {
+        return this.models;
+    }
+    getControllers() {
+        return this.controllers;
+    }
     _prepAutomagicLoading() {
-        let keys = Object.keys(this.controllers);
+        let keys = Object.keys(this.getControllers());
         this.app.use((req, res, next) => {
             keys.forEach(title => {
                 if(req.url.indexOf(`/${title}/`) > -1) {
