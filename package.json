@@ -1,6 +1,6 @@
 {
   "name": "kona-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Kona is a simple backend server that scales",
   "main": "bin/server.js",
   "scripts": {
