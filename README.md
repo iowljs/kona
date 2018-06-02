@@ -2,13 +2,13 @@
 
 > A simple REST backend server that scales easily.
 
-## Why Kona?
-
-Kona was designed out of a personal need for a small, and scalable REST backend server for numerous web applications and mobile services. Battle-tested, and ironed over the past year, Kona has been running for all my personal projects fast, and without issues, in moderate-traffic environments. Run with PM2, and Service Offloading (**see details below**), allowing for faster response times without giving up any crutical features.
-
 ## Get Started
 
 It's simple, run `git clone https://github.com/iowljs/kona.git && cd kona && git checkout stable && npm install`, to start the server, either run `npm start` *or* `node bin/server.js`
+
+## Why Kona?
+
+Kona was designed out of a personal need for a small, and scalable REST backend server for numerous web applications and mobile services. Battle-tested, and ironed over the past year, Kona has been running for all my personal projects fast, and without issues, in moderate-traffic environments. Run with PM2, and Service Offloading (**see details below**), allowing for faster response times without giving up any crutical features.
 
 ### Service Offloading
 
