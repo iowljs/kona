@@ -21,6 +21,7 @@ module.exports = class GatewayServer {
         this.models         = {};
         this.controllers    = {};
         this.sequelize      = null;
+        this.logger         = require(path.join(__dirname, '../../modules/logger'));
         this.request        = require(path.join(__dirname, '../../modules/serverconnector'));
         this.paths          = {
             MIDDLEWARE: path.join(__dirname, '../../modules/middleware'),
