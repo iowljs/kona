@@ -20,6 +20,7 @@ module.exports = class GatewayServer {
         this.fs             = fs;
         this.models         = {};
         this.controllers    = {};
+        this.sequelize      = null;
         this.paths          = {
             MIDDLEWARE: path.join(__dirname, '../../modules/middleware'),
             CONTROLLERS: path.join(__dirname, '../../controllers'),
@@ -29,6 +30,27 @@ module.exports = class GatewayServer {
         this._prepModels();
         this._prepControllers();
         this._prepAutomagicLoading();
+        this._prepSequelize();
+    }
+    /**
+     * Create a new sequelize engine, if one does not already exist.
+     * @param {object} config THe database configuration object
+     */
+    getDatabaseEngine(config) {
+        let engine = this.sequelize;
+        if(typeof engine.getQueryBuilder === 'undefined') {
+            this.sequelize = new engine(require(path.join(__dirname, '../../config/database.js')));
+        }
+        return this.sequelize;
+    }
+    /**
+     * @method _prepSequelize
+     * @private
+     * @description Prepare the sequelize object, and it make available to all passed-members.
+     */
+    _prepSequelize() {
+        let sequelize = require(path.join(__dirname, '../../modules/database/sql'));
+        this.sequelize = sequelize;
     }
     /**
      * @method getModels

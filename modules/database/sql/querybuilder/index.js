@@ -27,6 +27,12 @@ module.exports = class SQLEngineQueryBuilder {
         return this;
     }
     write() {
-        // TODO: Write query string here, send replacements witht he object.
+        let self = this;
+        var query = 'SELECT ' + this.select_arrays.join(', ') + ' FROM ' + this.from_table;
+        query += ' WHERE ' + this.where_statements.join(' AND ');
+        return {
+            query,
+            replacements: self.value_array
+        };
     }
 }
