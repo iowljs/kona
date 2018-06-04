@@ -13,7 +13,7 @@ module.exports = app => {
         return compression.filter(req, res);
     }
     app.use((req, res, next) => {
-        if(req.url.indexOf(/\nocache/g) > -1) {
+        if(req.url.indexOf(/\\?nocache/g) > -1) {
             res.setHeader('Cache-Control', 'no-cache');
         }
         next();
