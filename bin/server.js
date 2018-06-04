@@ -18,4 +18,4 @@ if(getConfig(`ENABLE_ANALYTICS`)) {
     server.enableAnalytics();
 }
 // @note start the server
-server.serve();
+server.serve({ https: true });
