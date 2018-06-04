@@ -25,7 +25,8 @@ module.exports = class GatewayServer {
         this.paths          = {
             MIDDLEWARE: path.join(__dirname, '../../modules/middleware'),
             CONTROLLERS: path.join(__dirname, '../../controllers'),
-            MODELS: path.join(__dirname, '../../models')
+            MODELS: path.join(__dirname, '../../models'),
+            CERTS: path.join(__dirname, '../../certs/')
         };
         this._prepMiddleware();
         this._prepModels();
@@ -132,9 +133,22 @@ module.exports = class GatewayServer {
                 port++;
             }
         }
-        this.app.listen(port, () => {
-            console.log(`Listening on *:${port}`);
-        })
+        if(config && config.https) {
+            let self = this;
+            const options = {
+                key: fs.readFileSync(path.join(self.paths.CERTS, 'key.pem')),
+                cert: fs.readFileSync(path.join(self.paths.CERTS, 'cert.pem')),
+            };
+            require('https').createServer({
+                key: options.key,
+                cert: options.cert
+            }, self.app).listen(port);
+        }
+        else {
+            this.app.listen(port, () => {
+                console.log(`Listening on *:${port}`);
+            })
+        }
     }
     /**
      * @method _prepControllers
