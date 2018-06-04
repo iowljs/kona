@@ -51,4 +51,4 @@
      middleware: autoload_response.middleware_paths
  };
  var autoload_final = JSON.stringify(list_object);
- fs.writeFileSync('config/autoload.json', autoload_final);
+ fs.writeFileSync('config/classmap.json', autoload_final);
